@@ -7,7 +7,7 @@ import LocationComponent from '@/app/components/location';
 
 const EventsScreen = () => {
   return (
-    <SafeAreaView className="flex-1 bg-white">
+     <SafeAreaView className="flex-1 bg-white" edges={['top']}>
       <View className="px-4 py-2">
         <LocationComponent />
 
@@ -28,7 +28,7 @@ const EventsScreen = () => {
       </View>
 
       <View className="absolute top-20 right-6">
-         <BellRing color="blue" />
+         <BellRing/>
 
       </View>
 

@@ -1,5 +1,5 @@
 import { BellRing } from "lucide-react-native";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,13 +7,23 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
-  Animated,
-  Easing,
 } from "react-native";
+import * as Haptics from 'expo-haptics';
 
-const CommunityFeature = ({ icon, label }) => (
-    <TouchableOpacity activeOpacity={0.7}>
+const triggerHapticFeedback = () => {
+  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+};
 
+interface CommunityFeatureProps {
+  icon: string;
+  label: string;
+}
+
+const CommunityFeature = ({ icon, label }: CommunityFeatureProps) => (
+  <TouchableOpacity
+    activeOpacity={0.7}
+    onPress={() => triggerHapticFeedback()} // Added haptic feedback on press
+  >
     <View className="items-center mx-4">
       <View className="w-16 h-16 rounded-full bg-blue-100 items-center justify-center mb-2">
         <Text className="text-3xl">{icon}</Text>
@@ -21,19 +31,32 @@ const CommunityFeature = ({ icon, label }) => (
       <Text
         className="text-xs text-center max-w-20"
         style={{
-            maxWidth: 80, 
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
+          maxWidth: 80,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
         }}
-        >
+      >
         {label}
       </Text>
     </View>
-          </TouchableOpacity>
-  ); 
+  </TouchableOpacity>
+);
 
-const CommunityPost = ({ name, handle, content, hasImage }) => (
+interface CommunityPostProps {
+  id: string;
+  name: string;
+  handle: string;
+  content: string;
+  hasImage: boolean;
+}
+
+const CommunityPost = ({
+  name,
+  handle,
+  content,
+  hasImage,
+}: CommunityPostProps) => (
   <View className="border-b border-gray-200 pb-6">
     <View className="flex-row items-center mb-4">
       <View className="w-10 h-10 bg-gray-200 rounded-full mr-3" />
@@ -56,7 +79,7 @@ const CommunityPost = ({ name, handle, content, hasImage }) => (
 );
 
 const CommunityScreen = () => {
-  const [activeTab, setActiveTab] = useState("trending");
+  const [activeTab, setActiveTab] = useState<string>("trending");
 
   const features = [
     { icon: "🚭", label: "No-Smoking" },
@@ -90,7 +113,7 @@ const CommunityScreen = () => {
     <SafeAreaView className="flex-1 bg-white">
       <View className="border-b flex flex-row justify-between mx-2 border-gray-200 p-4">
         <Text className="text-2xl font-bold">Community</Text>
-        <BellRing />
+        <BellRing onPress={()=>triggerHapticFeedback()} />
       </View>
 
       <ScrollView className="flex-1">
@@ -111,7 +134,10 @@ const CommunityScreen = () => {
         <View className="self-center my-5 mb-12 px-20 py-2">
           <View className="flex-row w-full bg-blue-100 rounded-full">
             <TouchableOpacity
-              onPress={() => setActiveTab("trending")}
+              onPress={() => {
+                setActiveTab("trending");
+                triggerHapticFeedback(); 
+              }}
               className={`px-6 py-3 rounded-full ${
                 activeTab === "trending" ? "bg-blue-900" : ""
               }`}
@@ -126,7 +152,10 @@ const CommunityScreen = () => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setActiveTab("following")}
+              onPress={() => {
+                setActiveTab("following");
+                triggerHapticFeedback(); 
+              }}
               className={`px-6 py-3 rounded-full ${
                 activeTab === "following" ? "bg-blue-900" : ""
               }`}
