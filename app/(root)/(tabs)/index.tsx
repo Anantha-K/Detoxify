@@ -1,8 +1,8 @@
 import { Link } from "expo-router";
-import { Text, View, Image, TouchableOpacity, ScrollView, ImageBackground, StyleSheet } from "react-native";
+import { Text, View, Image, TouchableOpacity, ScrollView, ImageBackground, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Navbar from "@/app/components/navbar";
-import { Flame } from "lucide-react-native";
+import { Flame, ThumbsUp } from "lucide-react-native";
 
 
 export default function Index() {
@@ -35,45 +35,51 @@ export default function Index() {
     activeOpacity={0.7}
     className="w-12 h-12 rounded-full overflow-hidden ml-4"
   >
+    <Link href="/(root)/(pages)/profile">
     <Image
       source={require("@/assets/images/avatar.png")}
-     
+      
       className="w-full h-full object-cover"
-    />
+      />
+      </Link>
   </TouchableOpacity>
 </View>
 
 
 
-
 <TouchableOpacity activeOpacity={0.9}>
   <Link href='/(root)/(pages)/emotions'>
-  <View className="flex w-[90%] flex-row justify-around items-center mx-auto mt-8 bg-white h-40 rounded-3xl shadow-sm shadow-green-200">
-    <View className="flex flex-column gap-y-2 justify-center items-start h-full">
-      <Text className="text-black text-2xl font-semibold">
-        State of Mind
-      </Text>
-      <Text className="text-gray-500 text-sm">
-        How do you feel today?
-      </Text>
+    <View className="flex justify-center items-center w-full">
+      <View className="flex w-[90%] flex-row justify-around items-center mx-auto mt-8 bg-white h-40 rounded-3xl shadow-sm shadow-green-200">
+        <View className="flex flex-col gap-y-2 justify-center items-start h-full">
+          <Text className="text-black text-2xl font-semibold">
+            State of Mind
+          </Text>
+          <Text className="text-gray-500 text-sm">
+            How do you feel today?
+          </Text>
+        </View>
+        <Image
+          source={require("@/assets/images/mood.jpg")}
+          style={{ width: 100, height: 100, resizeMode: 'contain' }} 
+        />
+      </View>
     </View>
-    <Image
-      source={require("@/assets/images/mood.jpg")}
-      style={{ width: 100, height: 100, resizeMode: 'contain' }} 
-      />
-  </View>
-      </Link>
+  </Link>
 </TouchableOpacity>
+
 
 
         <View className="flex flex-row justify-between items-center p-4 w-[93%] self-center mt-8">
           <TouchableOpacity>
+            <Link href="/(root)/(pages)/streaks">
             <View className="w-28 h-28 bg-gray-200  rounded-3xl shadow-sm flex items-center justify-center">
               <Flame color="orange" />
               <Text className="text-black text-xs font-semibold mt-3">
                 50 days clean
               </Text>
             </View>
+            </Link>
           </TouchableOpacity>
 
           <TouchableOpacity>
@@ -86,14 +92,17 @@ export default function Index() {
           </TouchableOpacity>
 
           <TouchableOpacity>
+            <Link href="/(root)/(pages)/report">
             
           <View className="w-28 h-28 bg-gray-200  rounded-3xl shadow-sm flex items-center justify-center">
+
               <Flame color="orange" />
               <Text className="text-black text-xs font-semibold mt-3">
                 Report Crime
               </Text>
             </View>
 
+            </Link>
           </TouchableOpacity>
         </View>
 
@@ -200,18 +209,106 @@ export default function Index() {
 
         </ScrollView>
 
-        <TouchableOpacity activeOpacity={0.9}>
-          <View className="flex w-[90%] mt-12 mx-auto bg-black h-56 rounded-3xl shadow-lg"></View>
-        </TouchableOpacity>
 
+        
         <TouchableOpacity activeOpacity={0.9}>
-          <View className="flex w-[90%] mt-12 mx-auto bg-black h-40 rounded-3xl shadow-lg"></View>
-        </TouchableOpacity>
+  <View className="flex w-[90%] mt-16 mx-auto h-56 rounded-3xl shadow-lg overflow-hidden mb-16">
+    <ImageBackground
+      source={require('@/assets/images/japan.png')}
+      style={{
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+        borderRadius: 24, 
+        overflow: 'hidden',
+      }}
+    >
+      <View style={{ position: 'absolute', top: 16, left: 16 }}>
+        <Text className="text-white text-3xl font-semibold">
+          YHeadsing
+        </Text>
+      </View>
+    </ImageBackground>
+  </View>
+</TouchableOpacity>
 
 
-        <TouchableOpacity activeOpacity={0.9}>
-          <View className="flex w-[90%] mt-12 mx-auto bg-black h-40 rounded-3xl shadow-lg"></View>
-        </TouchableOpacity>
+
+
+
+
+
+<TouchableOpacity activeOpacity={0.9}>
+  <View className="flex w-[90%]  mx-auto flex-row bg-white h-40 m-8 border-2 border-gray-100 rounded-3xl shadow-lg">
+    <View className="w-1/3 flex items-center justify-center">
+      <Image
+        source={require("@/assets/images/map.png")}
+        className="w-28 ml-4 h-28 rounded-xl"
+      />
+    </View>
+    <View className="w-2/3 flex flex-col items-start pl-8 h-full pt-6">
+      <Text className="text-black text-2xl font-semibold">
+        Heading
+      </Text>
+      <View className="flex flex-row items-center mt-3 justify-between w-full">
+        <View className="flex flex-row items-center mt-7">
+          <Image
+            source={require("@/assets/images/avatar.png")}
+            className="w-8 h-8 object-cover rounded-full"
+          />
+          <View className="flex flex-col ml-2">
+            <Text className="text-black text-sm">Joe</Text>
+            <Text className="text-black text-xs">Role</Text>
+          </View>
+        </View>
+        <View className="flex flex-row items-end mr-5 mt-7">
+          <Pressable>
+
+          <ThumbsUp color="black" size={20} />
+          </Pressable>
+          <Text className="text-black ml-2 text-sm">123</Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</TouchableOpacity>
+
+<TouchableOpacity activeOpacity={0.9}>
+  <View className="flex w-[90%] mx-auto flex-row bg-white h-40 border-2 border-gray-100 rounded-3xl shadow-lg">
+    <View className="w-1/3 flex items-center justify-center">
+      <Image
+        source={require("@/assets/images/map.png")}
+        className="w-28 ml-4 h-28 rounded-xl"
+      />
+    </View>
+    <View className="w-2/3 flex flex-col items-start pl-8 h-full pt-6">
+      <Text className="text-black text-2xl font-semibold">
+        Heading
+      </Text>
+      <View className="flex flex-row items-center mt-3 justify-between w-full">
+        <View className="flex flex-row items-center mt-7">
+          <Image
+            source={require("@/assets/images/avatar.png")}
+            className="w-8 h-8 object-cover rounded-full"
+          />
+          <View className="flex flex-col ml-2">
+            <Text className="text-black text-sm">Joe</Text>
+            <Text className="text-black text-xs">Role</Text>
+          </View>
+        </View>
+        <View className="flex flex-row items-end mr-5 mt-7">
+          <Pressable>
+
+          <ThumbsUp color="black" size={20} />
+          </Pressable>
+          <Text className="text-black ml-2 text-sm">123</Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</TouchableOpacity>
+
+
 
       </ScrollView>
 

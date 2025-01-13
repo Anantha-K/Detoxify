@@ -64,19 +64,6 @@ export default function RootLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="streaks"
-        options={{
-          tabBarIcon: ({ color }) => <UsersRound color={color} />,
-          tabBarLabel: () => null,
-          tabBarButton: (props) => (
-            <TouchableOpacity 
-              {...props} 
-              onPress={() => { triggerHapticFeedback(); props.onPress(); }} 
-            />
-          ),
-        }}
-      />
 
       {/* Events Tab */}
       <Tabs.Screen
