@@ -1,7 +1,8 @@
 import { Tabs } from "expo-router";
-import { Calendar, House, Sparkles, UsersRound } from "lucide-react-native";
+import { Calendar, House, MessageCircle, Sparkles, UsersRound } from "lucide-react-native";
 import { TouchableOpacity } from "react-native";
 import * as Haptics from 'expo-haptics'; 
+
 
 export default function RootLayout() {
   const triggerHapticFeedback = () => {
@@ -79,6 +80,22 @@ export default function RootLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+name="chat"
+options={{
+  tabBarIcon: ({ color }) => <MessageCircle color={color} />,
+  tabBarLabel: () => null,
+  tabBarButton: (props) => (
+    <TouchableOpacity 
+      {...props} 
+      onPress={() => { triggerHapticFeedback(); props.onPress(); }} 
+    />
+  ),
+}}
+/>
     </Tabs>
+
+
+
   );
 }

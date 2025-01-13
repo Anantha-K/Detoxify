@@ -2,7 +2,7 @@ import { Link } from "expo-router";
 import { Text, View, Image, TouchableOpacity, ScrollView, ImageBackground, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Navbar from "@/app/components/navbar";
-import { Flame, ThumbsUp } from "lucide-react-native";
+import { Cctv, Flame, ThumbsUp,HeartHandshake  } from "lucide-react-native";
 
 
 export default function Index() {
@@ -16,7 +16,7 @@ export default function Index() {
     greeting = "Good evening";
   }
   return (
-    <SafeAreaView className="flex-1 bg-gray-200 " edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-wheat " edges={["top"]}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 50}}
@@ -33,7 +33,7 @@ export default function Index() {
 
   <TouchableOpacity
     activeOpacity={0.7}
-    className="w-12 h-12 rounded-full overflow-hidden ml-4"
+    className="w-16 h-16 rounded-full overflow-hidden ml-4"
   >
     <Link href="/(root)/(pages)/profile">
     <Image
@@ -49,7 +49,7 @@ export default function Index() {
 
 <TouchableOpacity activeOpacity={0.9}>
   <Link href='/(root)/(pages)/emotions'>
-    <View className="flex justify-center items-center w-full">
+    <View className="flex justify-center items-center w-full ">
       <View className="flex w-[90%] flex-row justify-around items-center mx-auto mt-8 bg-white h-40 rounded-3xl shadow-sm shadow-green-200">
         <View className="flex flex-col gap-y-2 justify-center items-start h-full">
           <Text className="text-black text-2xl font-semibold">
@@ -70,10 +70,10 @@ export default function Index() {
 
 
 
-        <View className="flex flex-row justify-between items-center p-4 w-[93%] self-center mt-8">
+        <View className="flex flex-row justify-between items-center p-4 w-[93%] self-center mt-3">
           <TouchableOpacity>
             <Link href="/(root)/(pages)/streaks">
-            <View className="w-28 h-28 bg-gray-200  rounded-3xl shadow-sm flex items-center justify-center">
+            <View className="w-28 h-28 bg-white  rounded-3xl shadow-sm flex items-center justify-center">
               <Flame color="orange" />
               <Text className="text-black text-xs font-semibold mt-3">
                 50 days clean
@@ -83,8 +83,8 @@ export default function Index() {
           </TouchableOpacity>
 
           <TouchableOpacity>
-          <View className="w-28 h-28 bg-gray-200  rounded-3xl shadow-sm flex items-center justify-center">
-              <Flame color="orange" />
+          <View className="w-28 h-28 bg-white rounded-3xl shadow-sm flex items-center justify-center">
+              <HeartHandshake color="orange" />
               <Text className="text-black text-xs font-semibold mt-3">
                 Family feels Happy
               </Text>
@@ -94,9 +94,9 @@ export default function Index() {
           <TouchableOpacity>
             <Link href="/(root)/(pages)/report">
             
-          <View className="w-28 h-28 bg-gray-200  rounded-3xl shadow-sm flex items-center justify-center">
+          <View className="w-28 h-28 bg-white rounded-3xl shadow-sm flex items-center justify-center">
 
-              <Flame color="orange" />
+              <Cctv color="orange" />
               <Text className="text-black text-xs font-semibold mt-3">
                 Report Crime
               </Text>
@@ -239,7 +239,7 @@ export default function Index() {
 
 
 <TouchableOpacity activeOpacity={0.9}>
-  <View className="flex w-[90%]  mx-auto flex-row bg-white h-40 m-8 border-2 border-gray-100 rounded-3xl shadow-lg">
+  <View className="flex w-[90%]  mx-auto flex-row bg-white h-40 m-8 border-2 border-gray-100 rounded-3xl shadow-sm">
     <View className="w-1/3 flex items-center justify-center">
       <Image
         source={require("@/assets/images/map.png")}
@@ -274,7 +274,7 @@ export default function Index() {
 </TouchableOpacity>
 
 <TouchableOpacity activeOpacity={0.9}>
-  <View className="flex w-[90%] mx-auto flex-row bg-white h-40 border-2 border-gray-100 rounded-3xl shadow-lg">
+  <View className="flex w-[90%] mx-auto flex-row bg-white h-40 border-2 border-gray-100 rounded-3xl shadow-sm">
     <View className="w-1/3 flex items-center justify-center">
       <Image
         source={require("@/assets/images/map.png")}

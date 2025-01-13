@@ -39,14 +39,8 @@ const AIChatInterface = () => {
         className="flex-1"
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <View className="flex-row items-center p-4 border-b border-slate-800">
-          <TouchableOpacity className="p-2">
-        <Link href='/(root)/(tabs)'>
-
-            <ArrowLeft size={24} color="white" strokeWidth={2} />
-        </Link>
-          </TouchableOpacity>
-          <Text className="text-white text-xl font-semibold ml-2">Nova</Text>
+        <View className="flex-row items-center justify-center p-4 border-b border-slate-800">
+                    <Text className="text-white text-3xl font-semibold ml-2">Nova</Text>
         </View>
 
         <ScrollView
@@ -97,11 +91,10 @@ const AIChatInterface = () => {
           )}
         </ScrollView>
 
-        {/* Input Area */}
         <View className="p-4 border-t border-slate-800">
           <View className="flex-row items-center space-x-2">
             <TextInput
-              className="flex-1 bg-slate-800 text-white p-4 rounded-full"
+              className="flex-1 bg-slate-800 text-white p-4 rounded-full mr-2"
               placeholder="Ask me anything..."
               placeholderTextColor="#9CA3AF"
               value={inputText}
