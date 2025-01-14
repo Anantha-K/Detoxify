@@ -6,7 +6,6 @@ export default function ChatScreen() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    // Set the initial messages for the chat
     setMessages([
       {
         _id: 1,
@@ -43,7 +42,7 @@ export default function ChatScreen() {
         messages={messages}
         onSend={onSend}
         user={{
-          _id: 1, // Current user's id (e.g. User)
+          _id: 1, 
         }}
         renderUsernameOnMessage={true}
         renderAvatarOnMessage={true}

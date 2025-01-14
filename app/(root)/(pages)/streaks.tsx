@@ -6,6 +6,7 @@ import {
   ScrollView,
   SafeAreaView,
   FlatList,
+  Pressable,
 } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { X, FlameIcon } from "lucide-react-native";
@@ -274,6 +275,14 @@ const StreakTracker = () => {
                   hideExtraDays={true}
                   enableSwipeMonths={true}
                 />
+              </View>
+
+              <View className="w-full items-center mt-8">
+                <Pressable className="bg-red-300 py-3 px-5 rounded-3xl">
+                  <Text className="text-3xl text-white ">
+                    Relapsed
+                    </Text>
+                </Pressable>
               </View>
             </>
           )}

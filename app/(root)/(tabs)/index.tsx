@@ -179,18 +179,21 @@ export default function Index() {
     </View>
   </ImageBackground>
 </View>
+
+
 <View style={styles.container}>
+  <Link href='Blogs/1'>
   <ImageBackground
     source={require('@/assets/images/japan.png')}  
     style={styles.card}
-  >
+    >
     <View className="flex flex-col justify-start items-start p-4">
       <Text className="text-4xl text-white font-bold">Heading</Text>
       <View className="flex flex-row items-center mt-3">
         <Image
           source={require("@/assets/images/avatar.png")}
           className="w-8 h-8 object-cover rounded-full"
-        />
+          />
         <View className="flex flex-col ml-2">
           <Text className="text-white text-xs">Joe</Text>
           <Text className="text-white text-xs">2h ago</Text>
@@ -198,6 +201,7 @@ export default function Index() {
       </View>
     </View>
   </ImageBackground>
+          </Link>
 </View>
 
 
@@ -237,9 +241,8 @@ export default function Index() {
 
 
 
-
 <TouchableOpacity activeOpacity={0.9}>
-  <View className="flex w-[90%]  mx-auto flex-row bg-white h-40 m-8 border-2 border-gray-100 rounded-3xl shadow-sm">
+  <View className="flex w-[90%] mx-auto flex-row bg-white h-40 m-8 border-2 border-gray-100 rounded-3xl shadow-sm">
     <View className="w-1/3 flex items-center justify-center">
       <Image
         source={require("@/assets/images/map.png")}
@@ -263,8 +266,7 @@ export default function Index() {
         </View>
         <View className="flex flex-row items-end mr-5 mt-7">
           <Pressable>
-
-          <ThumbsUp color="black" size={20} />
+            <ThumbsUp color="black" size={20} />
           </Pressable>
           <Text className="text-black ml-2 text-sm">123</Text>
         </View>
@@ -274,7 +276,7 @@ export default function Index() {
 </TouchableOpacity>
 
 <TouchableOpacity activeOpacity={0.9}>
-  <View className="flex w-[90%] mx-auto flex-row bg-white h-40 border-2 border-gray-100 rounded-3xl shadow-sm">
+  <View className="flex w-[90%] mx-auto flex-row bg-white h-40 m-8 border-2 border-gray-100 rounded-3xl shadow-sm">
     <View className="w-1/3 flex items-center justify-center">
       <Image
         source={require("@/assets/images/map.png")}
@@ -298,8 +300,7 @@ export default function Index() {
         </View>
         <View className="flex flex-row items-end mr-5 mt-7">
           <Pressable>
-
-          <ThumbsUp color="black" size={20} />
+            <ThumbsUp color="black" size={20} />
           </Pressable>
           <Text className="text-black ml-2 text-sm">123</Text>
         </View>
@@ -307,7 +308,6 @@ export default function Index() {
     </View>
   </View>
 </TouchableOpacity>
-
 
 
       </ScrollView>
