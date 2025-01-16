@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const AppRouter = require('./Routes/Signup');
+const PostsRouter = require('./Routes/posts');
 require('dotenv').config();
 
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json())
 app.use(AppRouter);
+app.use(PostsRouter);
 
 const uri = process.env.ATLAS_URI;
 

@@ -21,7 +21,6 @@ const userSchema = new mongoose.Schema({
     moodLogs: [{
         date: { type: Date, default: Date.now },
         mood: { type: String, required: true },
-        notes: { type: String }
     }],
 }, { timestamps: true });
 
