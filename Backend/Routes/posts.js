@@ -49,4 +49,58 @@ router.get('/getPosts',async (req,res)=>{
 })
 
 
+
+router.post('/events', async (req, res) => {
+    try {
+        const { title, description, image, date, time, venue, organizer } = req.body;
+
+        if (!title || !description || !date || !time || !venue || !organizer) {
+            return res.status(400).json({ message: 'All required fields must be provided.' });
+        }
+
+        const newEvent = new Event({
+            title,
+            description,
+            image,
+            date,
+            time,
+            venue,
+            organizer
+        });
+
+        const savedEvent = await newEvent.save();
+        res.status(201).json({ message: 'Event created successfully', event: savedEvent });
+    } catch (error) {
+        console.error('Error creating event:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+router.get('/events', async (req, res) => {
+    try {
+        const events = await Event.find().sort({ date: 1 });
+        res.status(200).json(events);
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+router.get('/events/:id', async (req, res) => {
+    try {
+        const event = await Event.findById(req.params.id);
+
+        if (!event) {
+            return res.status(404).json({ message: 'Event not found' });
+        }
+
+        res.status(200).json(event);
+    } catch (error) {
+        console.error('Error fetching event:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+
+
 module.exports = router;
