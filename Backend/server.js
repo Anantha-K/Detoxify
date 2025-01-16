@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const AppRouter = require('./Routes/Signup');
 const PostsRouter = require('./Routes/posts');
+const moodsRouter = require('./Routes/moods');
+
 require('dotenv').config();
 
 
@@ -14,6 +16,7 @@ app.use(bodyParser.json());
 app.use(express.json())
 app.use(AppRouter);
 app.use(PostsRouter);
+app.use(moodsRouter)
 
 const uri = process.env.ATLAS_URI;
 
